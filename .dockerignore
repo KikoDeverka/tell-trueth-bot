@@ -1,0 +1,38 @@
+# -- [Nest.js] --
+node_modules
+build
+.git
+
+**/*.log
+**/*.md
+**/*.php~
+**/._*
+**/.dockerignore
+**/.DS_Store
+**/.git/
+**/.gitattributes
+**/.gitignore
+**/.gitmodules
+**/docker-compose.*.yaml
+**/docker-compose.*.yml
+**/docker-compose.yaml
+**/docker-compose.yml
+**/Dockerfile
+**/Thumbs.db
+.editorconfig
+.env.*.local
+.env.local
+.env.local.php
+.php_cs.cache
+helm/
+
+**/.next/
+**/dist/
+**/var/
+
+# Artifacts that will be built during image creation.
+# This should contain all files created during `npm run build`.
+build
+node_modules
+
+.env
