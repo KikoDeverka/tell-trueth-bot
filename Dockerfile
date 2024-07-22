@@ -21,7 +21,7 @@ COPY --from=builder /usr/src/bot/dist ./dist
 COPY --from=builder /usr/src/bot/node_modules ./node_modules
 COPY --from=builder /usr/src/bot/package*.json ./
 
-RUN mkdir -p /usr/src/bot/src/db
+RUN mkdir -p /usr/src/bot/src/db  
 
 # Installing only production dependencies (if any additional ones are needed)
 # This step might be redundant if all dependencies are already included in the node_modules copied from the builder

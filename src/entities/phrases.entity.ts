@@ -5,12 +5,12 @@ export class PhraseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: 'text' })
+  @Column()
   phrase: string;
 
-  @Column({ type: 'text' })
+  @Column()
   type: string;
 
-  @Column({ type: 'text' })
+  @Column()
   subtype: string;
 }

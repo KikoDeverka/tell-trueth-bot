@@ -1,0 +1,13 @@
+import { Controller, Get } from '@nestjs/common';
+import { PhraseService } from './phrase.service';
+import { PhraseEntity } from '../entities/phrases.entity';
+
+@Controller('phrases')
+export class PhraseController {
+  constructor(private readonly phraseService: PhraseService) {}
+
+  @Get()
+  findAll(): Promise<PhraseEntity[]> {
+    return this.phraseService.findAll();
+  }
+}
