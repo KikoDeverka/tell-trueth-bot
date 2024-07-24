@@ -13,4 +13,11 @@ export class PhraseService {
   findAll(): Promise<PhraseEntity[]> {
     return this.phraseRepository.find();
   }
+
+  create(text: string): Promise<PhraseEntity[]> {
+    this.phraseRepository.create({
+      phrase: text,
+    });
+    return this.findAll();
+  }
 }

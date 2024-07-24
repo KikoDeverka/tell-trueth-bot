@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { CategoriesEntity } from './categories.entity';
 
 @Entity({ name: 'phrases' })
 export class PhraseEntity {
@@ -8,9 +15,10 @@ export class PhraseEntity {
   @Column()
   phrase: string;
 
-  @Column()
-  type: string;
+  @ManyToOne(() => CategoriesEntity)
+  @JoinColumn({ name: 'categoryId' })
+  category: CategoriesEntity;
 
   @Column()
-  subtype: string;
+  categoryId: number;
 }

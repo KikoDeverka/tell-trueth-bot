@@ -5,20 +5,24 @@ import { TelegrafModule } from 'nestjs-telegraf';
 // import * as LocalSession from 'telegraf-session-local';
 import { ConfigModule } from '@nestjs/config';
 import { PhrasesModule } from './phrases/phrase.module';
+import { UsersModule } from './users/user.module';
 import { DatabaseModule } from './db/db.module';
-
-// const sessions = new LocalSession({ database: 'session_db.json' });
+import { PropositionWizard } from './app.wizard';
+import { session } from 'telegraf';
+import { CategoriesModule } from './categories/category.module';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
     TelegrafModule.forRoot({
-      // middlewares: [sessions.middleware()],
       token: process.env.BOT_TOKEN,
+      middlewares: [session()],
     }),
     DatabaseModule,
     PhrasesModule,
+    CategoriesModule,
+    UsersModule,
   ],
-  providers: [AppService, AppUpdate],
+  providers: [AppService, AppUpdate, PropositionWizard],
 })
 export class AppModule {}

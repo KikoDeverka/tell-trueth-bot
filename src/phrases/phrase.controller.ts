@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Post } from '@nestjs/common';
 import { PhraseService } from './phrase.service';
 import { PhraseEntity } from '../entities/phrases.entity';
 
@@ -9,5 +9,10 @@ export class PhraseController {
   @Get()
   findAll(): Promise<PhraseEntity[]> {
     return this.phraseService.findAll();
+  }
+
+  @Post()
+  create(text: string): Promise<PhraseEntity[]> {
+    return this.phraseService.create(text);
   }
 }
