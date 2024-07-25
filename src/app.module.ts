@@ -10,6 +10,8 @@ import { DatabaseModule } from './db/db.module';
 import { PropositionWizard } from './app.wizard';
 import { session } from 'telegraf';
 import { CategoriesModule } from './categories/category.module';
+import { Buttons } from './app.buttons';
+import { PropositionsModule } from './propositions/proposition.module';
 
 @Module({
   imports: [
@@ -22,7 +24,9 @@ import { CategoriesModule } from './categories/category.module';
     PhrasesModule,
     CategoriesModule,
     UsersModule,
+    PropositionsModule,
   ],
-  providers: [AppService, AppUpdate, PropositionWizard],
+  providers: [AppService, AppUpdate, PropositionWizard, Buttons],
+  exports: [Buttons],
 })
 export class AppModule {}

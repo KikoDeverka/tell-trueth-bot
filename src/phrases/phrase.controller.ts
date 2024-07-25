@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { PhraseService } from './phrase.service';
 import { PhraseEntity } from '../entities/phrases.entity';
 
@@ -14,5 +14,10 @@ export class PhraseController {
   @Post()
   create(text: string): Promise<PhraseEntity[]> {
     return this.phraseService.create(text);
+  }
+
+  @Delete()
+  removeAll(): Promise<void> {
+    return this.phraseService.removeAll();
   }
 }

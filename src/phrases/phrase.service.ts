@@ -20,4 +20,9 @@ export class PhraseService {
     });
     return this.findAll();
   }
+
+  removeAll(): Promise<void> {
+    this.phraseRepository.delete({});
+    return;
+  }
 }

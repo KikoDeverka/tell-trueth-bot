@@ -1,4 +1,4 @@
-import { Controller, Get, Post } from '@nestjs/common';
+import { Controller, Delete, Get, Post } from '@nestjs/common';
 import { CategoryService } from './category.service';
 import { CategoriesEntity } from 'src/entities/categories.entity';
 
@@ -12,7 +12,12 @@ export class CategoryController {
   }
 
   @Post()
-  create(text: string): Promise<CategoriesEntity[]> {
+  create(text: string): Promise<void> {
     return this.categoryService.create(text);
+  }
+
+  @Delete()
+  removeAll(): Promise<void> {
+    return this.categoryService.removeAll();
   }
 }

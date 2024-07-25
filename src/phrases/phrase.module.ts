@@ -9,5 +9,6 @@ import { PhraseEntity } from 'src/entities/phrases.entity';
   imports: [DatabaseModule, TypeOrmModule.forFeature([PhraseEntity])],
   controllers: [PhraseController],
   providers: [PhraseService],
+  exports: [PhraseService],
 })
 export class PhrasesModule {}
